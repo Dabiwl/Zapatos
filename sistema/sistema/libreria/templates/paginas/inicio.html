@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block titulo  %} Inicio {% endblock %}
+
+{% block contenido  %} 
+
+<div class="p-5 bg-light">
+    <div class="container">
+        <h3>Perfil</h3>
+        <hr class="my-2">
+        <div class="text-center mt-3">
+            {% if request.user.is_authenticated  %}
+            <li>
+                <a> {{user.username}}</a>
+            </li>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesión</a>
+
+            {% else %}
+            <a class="btn btn-primary" href="{% url 'login' %}" role="button">Iniciar sesión</a>
+            
+        
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,24 @@
+<!-- venta_form.html -->
+{% extends "base.html" %}
+
+{% block titulo  %} Lista de Productos {% endblock %}
+
+{% block contenido  %} 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Realizar Venta</title>
+</head>
+<body>
+    <h1>Formulario de Venta</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Realizar Venta</button>
+    </form>
+</body>
+</html>
+
+{% endblock %}

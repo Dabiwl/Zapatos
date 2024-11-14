@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block titulo  %} empleados {% endblock %}
+
+{% block contenido  %} 
+
+<div class="card">
+    {% if request.user.is_authenticated  %}
+    <div class="card-header">
+        <a
+            name=""
+            id=""
+            class="btn btn-primary"
+            href="{% url 'crearH' %}"
+            role="button"
+            >Agregar Horario</a
+        >
+        
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Productos</h4>
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table table-primary"
+            >
+                <thead>
+                    <tr>
+                        <th scope="col">horas</th>
+                        <th scope="col">Dias</th>
+                        <th scope="col">Mes</th>
+                        <th scope="col">TipoContrato</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for pagina in paginas %}
+                    <tr class="">
+                        <td>{{pagina.id}}</td>
+                        <td>{{pagina.dia}}</td>
+                        <td>{{pagina.hora}}</td>
+                        <td>{{pagina.tipoContrato}}</td>                        
+                        <td>hola
+                        
+
+                        </td>
+                        
+                        <td><a
+                            name=""
+                            id=""
+                            class="btn btn-info"
+                            href="{% url 'editarH' %}"
+                            role="button"
+                            >Editar</a
+                        >
+                         | <a
+                         name=""
+                         id=""
+                         class="btn btn-danger"
+                         href="{% url 'eliminar' libro.id %}"
+                         role="Borrar"
+                         >Borrar</a
+                     ></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="title"></div>
+    {% else %}
+    <h4 class="card-title">Tienes que iniciar sesion para agregar Horaios de empleados</h4>
+    {% endif %}
+</div>
+
+{% endblock %}
+
